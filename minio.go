@@ -2,7 +2,6 @@ package bucket
 
 import (
 	"context"
-	"fmt"
 	"io"
 
 	"github.com/minio/minio-go/v7"
@@ -50,5 +49,5 @@ func (b *minIObuilder) GetClient() (*minIO, error) {
 }
 
 func (m *minIO) DownloadFile(ctx context.Context, bucketName, fileName string) (io.ReadCloser, error) {
-	return m.client.GetObject(ctx, bucketName, fmt.Sprintf("%s.mp3", fileName), minio.GetObjectOptions{})
+	return m.client.GetObject(ctx, bucketName, fileName, minio.GetObjectOptions{})
 }
